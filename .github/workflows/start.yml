@@ -32,3 +32,5 @@ jobs:
           echo "App name is ${{ env.APP_NAME }}"
       - name: print greetings
         run: echo "Thanks for deployment!"
+      - name: list current folder
+        run: ls -la
