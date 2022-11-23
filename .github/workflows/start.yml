@@ -23,7 +23,7 @@ jobs:
         run: |
           echo "var1 is ${{ env.var1 }}"
           echo "var2 is ${{ env.var2 }}"
-          echo "Message two at ${{ GITHUB_JOB }}"
+          echo "Message two at ${{ GITHUB.JOB }}"
           echo "App name is ${{ env.APP_NAME }}"
       - name: print info
         run: uname -a
@@ -43,7 +43,7 @@ jobs:
         run: |
           echo "var1 is ${{ env.var1 }}"
           echo "var2 is ${{ env.var2 }}"
-          echo "Message two at ${{ GITHUB_JOB }}"
+          echo "Message two at ${{ GITHUB.JOB }}"
           echo "App name is ${{ env.APP_NAME }}"
       - name: print greetings
         run: echo "Thanks for deployment!"
