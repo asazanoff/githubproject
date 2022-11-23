@@ -2,8 +2,11 @@
 # Моя первая автоматизация через Гитхаб Воркфлоу
 ##########################
 name: My-First-Workflow
+env:
+  APP_NAME: "MyFlask"
+  PACKAGE_NAME: "flask_deploy_ver-${{ github.sha }}"
 
-on: 
+on:
   push:
     branches:
       - master
@@ -12,17 +15,20 @@ jobs:
   my_testing:
     runs-on: ubuntu-latest
     steps:
+      - name: print info
+        run: uname -a
       - name: print Hello World
-        run: echo "Hello World from testing job!" 
-    
-  
+        run: echo "Hello World from testing job!"
+      - name: print package name
+        run: echo "package name is ${{ env.PACKAGE_NAME }}"
   my_deploy:
     runs-on: ubuntu-latest
     needs: [my_testing]
     steps:
+      - name: Execute commands
+        run: |
+          echo "Message one"
+          echo "Message two"
+          echo "App name is ${{ env.APP_NAME }}"
       - name: print greetings
         run: echo "Thanks for deployment!"
-
-
-        
-  
