@@ -32,5 +32,13 @@ jobs:
           echo "App name is ${{ env.APP_NAME }}"
       - name: print greetings
         run: echo "Thanks for deployment!"
-      - name: list current folder
+      - name: list current folder before copying
         run: ls -la
+      - name: Copying files from git
+        uses: acting/checkout@v1
+      - name: list current folder after copying
+        run: ls -la
+      - name: check is AWS available
+        run: aws --version
+      - name: Check ZIP
+        run: zip
